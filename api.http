@@ -1,0 +1,48 @@
+### Recuperar todas las películas
+GET http://localhost:1234/movies
+
+### Recuperar una pelicula por id
+GET http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+
+### Recuperar todas las películas por un género
+GET http://localhost:1234/movies?genre=crime
+
+### Paginar 5 items
+GET http://localhost:1234/movies?page=2
+
+### Paginar por cantidad indicada de items
+GET http://localhost:1234/movies?page=1&quantity=5
+
+### Paginar por rate (calificación) mínimo y máximo
+GET http://localhost:1234/movies?ratemin=8&ratemax=10
+
+### Ordenar por rate incremental min a max
+GET http://localhost:1234/movies?order=1
+
+### Ordenar por rate incremental max a min
+GET http://localhost:1234/movies?order=2
+
+### crear una película con POST
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "The Godfather" ,
+    "year": 1975,
+    "director": "Francis Ford Coppola",
+    "duration": 175,
+    "poster": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Golden_Retriever_9-year_old.jpg",
+    "genre": [
+      "Crime",
+      "Drama"
+    ]
+}
+
+### Actualizar una película con PATCH
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "year":1993
+}
+
